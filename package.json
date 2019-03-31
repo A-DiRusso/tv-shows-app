@@ -1,0 +1,28 @@
+{
+  "name": "tv-shows-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "db:create": "createdb tv-shows-app",
+    "db:init": "psql -f schema.sql tv-shows-app && psql -f seed.sql tv-shows-app",
+    "db:destroy": "dropdb tv-shows-app",
+    "db:reset": "npm run db:destroy; npm run db:create && npm run db:init",
+    "test": "mocha",
+    "test:watch": "mocha -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "pg-promise": "^8.6.4"
+  }
+}
